@@ -1,0 +1,47 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+
+#menu-nav
+{
+    display:flex;
+    flex-direction:column;
+    height:20vh;
+}
+
+.icon
+{
+    background-color: #021334;
+    display:flex;
+    justify-content: center;
+    height:70%;
+}
+
+.icon img
+{
+    max-height: 50%;
+    align-self: center;
+}
+
+
+.nav-titles
+{
+    display:flex;
+    height:30%;
+    background-color: #012A61;
+    justify-content: space-around;
+}
+
+.nav-titles a
+{
+    text-decoration: none;
+    color:white;
+    font-size: 5vh;
+}
+
+
+
+
+
