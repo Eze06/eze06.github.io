@@ -318,6 +318,116 @@ body
     width:auto;
 }
 
+#games
+{
+    display:flex;
+    flex-direction: column;
+}
+
+#planet-creator
+{
+    display:none;
+    flex-direction: column;
+    gap:0;
+}
+
+.create-planet
+{
+    display:flex;
+    justify-content: center;
+    align-self: center;
+    height:30vh;
+    overflow: hidden;
+}
+
+.create-planet button
+{
+    font-size: 5vw;
+    color: grey;
+    background-color: transparent;
+    border: none;
+}
+
+.create-planet button:hover
+{
+    cursor:pointer;
+}
+
+
+.create-planet .planet-part {
+    height: 90vh;
+    position: absolute;
+    background-size: cover;
+    transition: background-image 0.3s ease-in-out;
+}
+
+
+.create-planet.top .planet-part {
+    background-position: top;
+}
+
+.create-planet.middle .planet-part {
+    background-position: center;
+}
+
+.create-planet.bottom .planet-part {
+    background-position: bottom;
+}
+
+
+#asteroid-shooter
+{
+    display:flex;
+    flex-direction: column;
+    gap:3vh;
+
+    
+    /* 
+    Make it full screen
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#191919; */
+}
+
+.asteroid-text
+{
+    display:flex;
+    justify-content: center;
+    gap:15vw;
+    font-size: 1vw;
+}
+
+.asteroid-text h2{
+    position:absolute;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 2vh;
+}
+
+.asteroid-game
+{
+    display:flex;
+    height:80vh;
+    align-items: center;
+    flex-direction: column;
+    gap:2vh;
+}
+
+.asteroid-game h1
+{
+    font-size:2vw;
+}
+
+
+.asteroid-game-background
+{
+    height:60vh;
+    width:80vw;
+    align-items: center;
+    background-image: url("image/game-background.jpg");
+    background-repeat: no-repeat;
+}
 
 @media only screen and (max-width: 800px) 
 {

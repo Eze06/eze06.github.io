@@ -25,6 +25,8 @@ const planetSizes = ["74.8 million km²", "460.2 million km²", "510.1 million k
 //Sections of different pages
 const planetPage = document.querySelector("#planets");
 const aboutPage = document.querySelector("#about");
+const gamesPage = document.querySelector("#games");
+
 
 var planetBriefSelector = document.querySelectorAll(".planet-selector h3");
 
@@ -33,9 +35,16 @@ var planetBriefSelectorBool = [true, false, false, false, false, false, false, f
 var planetsButton = document.querySelector(".planets-button");
 var aboutButton = document.querySelector(".about-button");
 var moonsButton = document.querySelector(".moons-button");
+var gamesButton = document.querySelector(".games-button");
+
 
 var prevButton = document.querySelector(".previous");
 var nextButton = document.querySelector(".next");
+
+var gameTimer = 0; //Timer used for asteroid game
+var gameTimerCounter = 0; //Timer used for asteroid game
+
+
 
 function AddSlideNextAnim()
 {    
@@ -103,15 +112,18 @@ function ChangePlanetBrief(index)
 
 }
 
+//Functions for opening different pages
 function OpenPlanetPage()
 {
-    //Close About and Moons page
+    //Close Games, About and Moons page
     aboutPage.style.display = "none";
+    gamesPage.style.display = "none";
 
     //Display planet page
     planetPage.style.display = "flex";
 
     aboutButton.style.textDecoration = "none";
+    gamesButton.style.textDecoration = "none";
     planetsButton.style.textDecoration = "underline";
 
     AddSlideNextAnim();
@@ -119,13 +131,28 @@ function OpenPlanetPage()
 
 function OpenAboutPage()
 {
-    //Close moons and planets page
+    //Close games, moons and planets page
     planetPage.style.display = "none";
+    gamesPage.style.display = "none";
 
     //Display about page
     aboutPage.style.display = "grid";
 
     aboutButton.style.textDecoration = "underline";
+    gamesButton.style.textDecoration = "none";
+    planetsButton.style.textDecoration = "none";
+}
+
+function OpenGamesPage() {
+    //Close about,  moons and planets page
+    planetPage.style.display = "none";
+    aboutPage.style.display = "none";
+
+    //Display about page
+    gamesPage.style.display = "flex";
+
+    gamesButton.style.textDecoration = "underline";
+    aboutButton.style.textDecoration = "none";
     planetsButton.style.textDecoration = "none";
 }
 
@@ -164,12 +191,39 @@ function PrevPlanet()
     AddSlidePrevAnim();
 }
 
-//Add onclick buttons to About Moon and Planets page
+//Function for randomly spawning asteroids
+function StartGame()
+{
+    let gameRight = document.querySelector(".asteroid-game-background").offsetWidth;
+    let gameTop = document.querySelector(".asteroid-game-background").offsetTop;
+    
+    let gameLeft = document.querySelector(".asteroid-game-background").offsetLeft;
+    let gameBottom = document.querySelector(".asteroid-game-background").offsetHeight;  
 
+    gameTimer = 30;
+    var timer = setInterval(function () {
+        document.querySelector(".game-timer").innerHTML = "Timer: " + gameTimer;
+        gameTimer--
+        console.log(gameTimer);
+        if (gameTimer <= 0)
+        {
+            clearInterval(timer);
+        }
+    }, 1000)
+}
+
+function PlayGame()
+{
+
+}
+
+//Add onclick buttons to About Moon and Planets page
 
 
 planetsButton.addEventListener("click", OpenPlanetPage);
 aboutButton.addEventListener("click", OpenAboutPage);
+gamesButton.addEventListener("click", OpenGamesPage);
+
 
 prevButton.addEventListener("click", PrevPlanet);
 nextButton.addEventListener("click", NextPlanet);
@@ -182,3 +236,6 @@ for(let i = 0; i < planetBriefSelector.length; i++)
 {
     planetBriefSelector[i].addEventListener("click", function(){ChangePlanetBrief(i)});
 }
+
+StartGame();
+
