@@ -5,18 +5,82 @@
     <meta charset="utf-8">
     <title>Solar System</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="image/icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <nav id="menu-nav">
         <div class="icon">
-            <img src="img/icon.png" alt = "solar system icon">
+            <h1>Solar</h1>
+            <img src="image/icon.png" alt = "solar system icon">
+            <h1>System</h1>
         </div>
 
         <div class="nav-titles">
-            <a href="#">Planets</a>
-            <a href="#">More</a>
+            <a class="about-button"href="#about">About</a>
+            <a class="planets-button"href="#planets">Planets</a>
+            <a class="moons-button"href="#">Moons</a>
         </div>
     </nav>
+    <section id="main-information">
+        <div class="main-information-text">
+            <h1>Solar System</h1>
+            <p>The <strong>Solar System</strong> is the gravitationally bound system of the Sun and objects that oribt it.</p>
+            <a href="#main-content">Learn More</a>
+        </div>
+    </section>
+
+    <section id="main-content">
+        <section id="about">
+            <h1 class="about-title">About</h1>
+            <div class="history-text">
+                <h1>History</h1>           
+                <p>The Solar System formed about 4.5 billion years ago from a dense cloud of interstellar gas and dust. The cloud collapsed, possibly due to the shockwave of a nearby exploding star, called a "supernova" When this dust cloud collapsed, it formed a solar nebula - a spinning, swirling disk of material.</p>  
+            </div>
+            <img class="history-img" src="image/solar-system-history.jpg" alt="picture of solar systems history">
+
+            <div class="structure-text">
+                <h1>Structure</h1>           
+                <p>The order and arrangement of the planets and other bodies in our solar system is due to the way the solar system formed. Nearest to the Sun, only rocky material could withstand the heat when the solar system was young. For this reason, the first four planets – Mercury, Venus, Earth, and Mars – are terrestrial planets. They are all small with solid, rocky surfaces.</p>  
+            </div>
+            <img class="structure-img" src="image/solar-system-structure.jpg" alt="picture of solar systems structure">
+
+            <div class="structure-text">
+                <h1>Structure</h1>           
+                <p>The order and arrangement of the planets and other bodies in our solar system is due to the way the solar system formed. Nearest to the Sun, only rocky material could withstand the heat when the solar system was young. For this reason, the first four planets – Mercury, Venus, Earth, and Mars – are terrestrial planets. They are all small with solid, rocky surfaces.</p>  
+            </div>
+            <img class="structure-img" src="image/solar-system-structure.jpg" alt="picture of solar systems structure">
+        </section>
+
+        <section id="planets">
+            <div id="planet-brief">
+                <button class="previous">&#8249;</button>
+                <img class="planet-img" src="image/mercury-planet.png" alt="Picture of planet">
+                <div id="planet-information">
+                    <h1 class="planet-name">Mercury</h1>
+                    
+                    <p class="distance-from-sun"><strong>Distance From Sun:</strong> 52.702 million Kilometers (Closest)</p>
+                       
+                    <p class="size-of-planet"><strong>Size of Planet:</strong> 74.8 million km²</p>
+                </div>
+                <button class="next">&#8250;</button>
+            </div>
+            
+            <div class="planet-selector">
+                <h3>Mercury</h3>
+                <h3>Venus</h3>
+                <h3>Earth</h3>
+                <h3>Mars</h3>
+                <h3>Jupiter</h3>
+                <h3>Saturn</h3>
+                <h3>Uranus</h3>
+                <h3>Neptune</h3>
+            </div>
+
+        </section>
+    </section>
+
+
+    <script src="script.js"></script>
 </body>
