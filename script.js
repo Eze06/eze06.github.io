@@ -44,6 +44,15 @@ var nextButton = document.querySelector(".next");
 var gameTimer = 0; //Timer used for asteroid game
 var gameTimerCounter = 0; //Timer used for asteroid game
 
+var bSpawnAsteroid = false;
+
+//Variables for asteroid game
+var asteroidHits = 0;
+var asteroidsPerSecond = 0;
+var accuracy = 0;
+var totalClicks = 0;
+
+
 
 
 function AddSlideNextAnim()
@@ -194,32 +203,77 @@ function PrevPlanet()
 //Function for randomly spawning asteroids
 function StartGame()
 {
-    let gameRight = document.querySelector(".asteroid-game-background").offsetWidth;
-    let gameTop = document.querySelector(".asteroid-game-background").offsetTop;
-    
-    let gameLeft = document.querySelector(".asteroid-game-background").offsetLeft;
-    let gameBottom = document.querySelector(".asteroid-game-background").offsetHeight;  
-
     gameTimer = 30;
+
+    //Start a timer of 30 seconds
+    let gameInterval = setInterval(PlayGame, 33); //33ms is roughly 30fps
+
     var timer = setInterval(function () {
         document.querySelector(".game-timer").innerHTML = "Timer: " + gameTimer;
         gameTimer--
-        console.log(gameTimer);
         if (gameTimer <= 0)
         {
+            clearInterval(gameInterval);
             clearInterval(timer);
         }
     }, 1000)
+
+
+    //Remove start button
+    gameStartButton.style.display = "none";
+    bSpawnAsteroid = true;
+
+    let gameArea = document.querySelector(".asteroid-game-background");
+    gameArea.addEventListener("click", function(){totalClicks++; return 0
+    });
 }
 
 function PlayGame()
 {
 
+    
+    let gameArea = document.querySelector(".asteroid-game-background");
+    console.log(totalClicks);
+    let gameWidth = gameArea.offsetWidth;
+    let gameHeight = gameArea.offsetHeight;
+    let gameLeft = gameArea.offsetLeft;
+    let gameTop = gameArea.offsetTop;
+
+
+
+    if(bSpawnAsteroid)
+    {
+        let rndX = randomIntFromInterval(gameLeft + asteroid.offsetWidth, gameLeft + gameWidth - asteroid.offsetWidth);
+        let rndY = randomIntFromInterval(gameTop + asteroid.offsetHeight, gameTop + gameHeight - asteroid.offsetHeight);
+    
+        console.log("x: " , rndX, "y: ", rndY);
+        SpawnAsteroid(rndX, rndY);
+    }
+    
+}
+
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+function SpawnAsteroid(x, y) //Spawn Asteroid At position x and y
+{
+    asteroid.style.display = "flex";
+    asteroid.style.position = "absolute"; // Ensure the asteroid is positioned absolutely
+    asteroid.style.left = x + "px";
+    asteroid.style.top = y + "px";
+    bSpawnAsteroid = false;
+
+}
+
+function ClearAsteroid()
+{    
+    asteroid.style.display = "none";
+    totalClicks++;
+    bSpawnAsteroid = true;
 }
 
 //Add onclick buttons to About Moon and Planets page
-
-
 planetsButton.addEventListener("click", OpenPlanetPage);
 aboutButton.addEventListener("click", OpenAboutPage);
 gamesButton.addEventListener("click", OpenGamesPage);
@@ -237,5 +291,10 @@ for(let i = 0; i < planetBriefSelector.length; i++)
     planetBriefSelector[i].addEventListener("click", function(){ChangePlanetBrief(i)});
 }
 
-StartGame();
+//Handle Asteroid Shooting Game
+var gameStartButton = document.querySelector(".start-game-button");
+var asteroid = document.querySelector(".asteroid"); //Asteroid 
+
+gameStartButton.addEventListener("click", StartGame);
+asteroid.addEventListener("click", ClearAsteroid) //Clear Asteroid on click 
 

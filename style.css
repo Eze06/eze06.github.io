@@ -11,6 +11,7 @@
     margin:0;
     padding:0;
     transition:0.3ms;
+    /* overflow-x:hidden; */
 }
 
 html
@@ -109,6 +110,7 @@ body
     
     padding-left: 10vw;
     max-width:40vw;
+    max-height:100%;
 }
 
 .main-information-text h1
@@ -396,6 +398,7 @@ body
     justify-content: center;
     gap:15vw;
     font-size: 1vw;
+    float:left;
 }
 
 .asteroid-text h2{
@@ -427,6 +430,39 @@ body
     align-items: center;
     background-image: url("image/game-background.jpg");
     background-repeat: no-repeat;
+}
+
+.game-timer
+{
+    float:right;
+}
+
+.start-game-button
+{
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    /*Same width and height as background div*/
+    width:80vw;
+    height:60vh;
+
+    /*Set the line height to the same as the background div height to center the text*/
+    line-height: 60vh;
+
+    font-size:2vw;
+    color:aqua;
+}
+
+.start-game-button h2:hover
+{
+    cursor: pointer;
+}
+
+.asteroid
+{
+    display:none;
+    max-width:5vw;
+    height:auto;
 }
 
 @media only screen and (max-width: 800px) 
