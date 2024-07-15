@@ -410,6 +410,7 @@ body
 
 .asteroid-game
 {
+    user-select: none;
     display:flex;
     height:80vh;
     align-items: center;
@@ -460,6 +461,7 @@ body
 
 .asteroid
 {
+    user-select: none;
     display:none;
     max-width:5vw;
     height:auto;

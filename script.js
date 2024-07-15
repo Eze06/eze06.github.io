@@ -55,6 +55,7 @@ var totalClicks = 0;
 
 
 
+
 function AddSlideNextAnim()
 {    
     //reset elements
@@ -223,9 +224,17 @@ function StartGame()
     gameStartButton.style.display = "none";
     bSpawnAsteroid = true;
 
+
+
     let gameArea = document.querySelector(".asteroid-game-background");
     gameArea.addEventListener("click", function(){totalClicks++; return 0
     });
+
+    //Reset game variables
+    totalClicks = -1;
+    asteroidHits = 0;
+    accuracy = 100;
+    asteroidsPerSecond = 0;
 }
 
 function PlayGame()
@@ -233,11 +242,14 @@ function PlayGame()
 
     
     let gameArea = document.querySelector(".asteroid-game-background");
-    console.log(totalClicks);
     let gameWidth = gameArea.offsetWidth;
     let gameHeight = gameArea.offsetHeight;
     let gameLeft = gameArea.offsetLeft;
     let gameTop = gameArea.offsetTop;
+
+    document.querySelector(".score").innerHTML = "Asteroids Hit: " + asteroidHits;
+
+
 
 
 
@@ -246,9 +258,23 @@ function PlayGame()
         let rndX = randomIntFromInterval(gameLeft + asteroid.offsetWidth, gameLeft + gameWidth - asteroid.offsetWidth);
         let rndY = randomIntFromInterval(gameTop + asteroid.offsetHeight, gameTop + gameHeight - asteroid.offsetHeight);
     
-        console.log("x: " , rndX, "y: ", rndY);
         SpawnAsteroid(rndX, rndY);
     }
+
+    console.log(totalClicks);
+
+    //Get accuracy of asteroids hit
+    if(totalClicks > 0)
+    {
+        accuracy = (asteroidHits / totalClicks) * 100;
+        document.querySelector(".accuracy").innerHTML = "Accuracy: " + Math.round((accuracy + Number.EPSILON) * 100) / 100 + "%";
+    }
+
+    //Get accuracy of asteroids hit
+    asteroidsPerSecond = (asteroidHits / (30 - gameTimer));
+    document.querySelector(".asteroids-per-second").innerHTML = "Asteroids Per Second: " + Math.round((asteroidsPerSecond + Number.EPSILON) * 100) / 100;
+
+
     
 }
 
@@ -269,7 +295,7 @@ function SpawnAsteroid(x, y) //Spawn Asteroid At position x and y
 function ClearAsteroid()
 {    
     asteroid.style.display = "none";
-    totalClicks++;
+    asteroidHits++;
     bSpawnAsteroid = true;
 }
 
