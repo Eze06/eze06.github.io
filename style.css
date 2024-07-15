@@ -328,7 +328,7 @@ body
 
 #planet-creator
 {
-    display:none;
+    display:flex;
     flex-direction: column;
     gap:0;
 }
@@ -338,7 +338,8 @@ body
     display:flex;
     justify-content: center;
     align-self: center;
-    height:30vh;
+    height:20vh;
+    gap:3vw;
     overflow: hidden;
 }
 
