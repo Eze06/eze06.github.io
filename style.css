@@ -321,9 +321,10 @@ body
 }
 
 #games
-{
-    display:flex;
+{   
+    display:none;
     flex-direction: column;
+    gap:20vh;
 }
 
 #planet-creator
@@ -356,25 +357,11 @@ body
     cursor:pointer;
 }
 
-
-.create-planet .planet-part {
-    height: 90vh;
-    position: absolute;
-    background-size: cover;
-    transition: background-image 0.3s ease-in-out;
-}
-
-
-.create-planet.top .planet-part {
-    background-position: top;
-}
-
-.create-planet.middle .planet-part {
-    background-position: center;
-}
-
-.create-planet.bottom .planet-part {
-    background-position: bottom;
+.new-planet-name
+{
+    font-size: 3vw;
+    align-self: center;
+    padding-top:5vh;
 }
 
 

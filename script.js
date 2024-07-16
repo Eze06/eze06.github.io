@@ -7,13 +7,30 @@ var distanceFromSun = document.querySelector(".distance-from-sun");
 var sizeOfPlanet = document.querySelector(".size-of-planet");
 
 var planetIndex = 0;
+var planetTopIndex = 0;
+var planetMiddleIndex = 0;
+var planetBottomIndex = 0;
+
 const numPlanets = 8;
 
 const planetNames = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
 
 const planetImages = ["image/mercury-planet.png", "image/venus-planet.png", "image/earth-planet.png", "image/mars-planet.png"
                     , "image/jupiter-planet.png", "image/saturn-planet.png", "image/uranus-planet.png", "image/neptune-planet.png"
-                    ]
+]
+                    
+const planetTopImages = ["image/mercury-top.png", "image/venus-top.png", "image/earth-top.png", "image/mars-top.png",
+                        "image/jupiter-top.png", "image/saturn-top.png", "image/uranus-top.png", "image/neptune-top.png"
+];
+
+const planetMiddleImages = ["image/mercury-middle.png", "image/venus-middle.png", "image/earth-middle.png", "image/mars-middle.png",
+                            "image/jupiter-middle.png", "image/saturn-middle.png", "image/uranus-middle.png", "image/neptune-middle.png"
+];
+
+const planetBottomImages = ["image/mercury-bottom.png", "image/venus-bottom.png", "image/earth-bottom.png", "image/mars-bottom.png",
+                            "image/jupiter-bottom.png", "image/saturn-bottom.png", "image/uranus-bottom.png", "image/neptune-bottom.png"
+];
+
 
 const planetDistance = ["52.702 Million Kilometers (Closest) ", "107.53 Million Kilometers", "149 Million Kilometers","228 Million kilometers",
                     "778 Million Kilometers","1.43 Billion Kilometers ","2.9 Billion Kilometers ","4.5 Billion Kilometers (Farthest) "]
@@ -53,8 +70,9 @@ var accuracy = 0;
 var totalClicks = 0;
 
 
-
-
+var planetTopPart = document.querySelector(".top-planet-part");
+var planetMiddlePart = document.querySelector(".middle-planet-part");
+var planetBottomPart = document.querySelector(".bottom-planet-part");
 
 function AddSlideNextAnim()
 {    
@@ -83,6 +101,8 @@ function AddSlidePrevAnim()
     planetImg.classList.add("slideprev-anim");
     planetInformation.classList.add("slideprev-anim");
 }
+
+
 
 function ShowPlanet(index)
 {    
@@ -199,6 +219,88 @@ function PrevPlanet()
     //set planet information
     ShowPlanet(planetIndex);
     AddSlidePrevAnim();
+}
+
+function NextPlanetPart(type)
+{
+    if (type == "top")
+    {
+        if (planetTopIndex >= numPlanets - 1) {
+            //Reset index
+            planetTopIndex = 0;
+        }
+        else {
+            planetTopIndex++;
+        }
+
+        planetTopPart.src = planetTopImages[planetTopIndex];
+    }
+
+    else if (type == "middle")
+    {
+        if (planetMiddleIndex >= numPlanets - 1) {
+            //Reset index
+            planetMiddleIndex = 0;
+        }
+        else {
+            planetMiddleIndex++;
+        }
+        planetMiddlePart.src = planetMiddleImages[planetMiddleIndex];
+    }
+
+    else
+    {
+        if (planetBottomIndex >= numPlanets - 1) {
+            //Reset index
+            planetBottomIndex = 0;
+        }
+        else {
+            planetBottomIndex++;
+        }
+        planetBottomPart.src = planetBottomImages[planetBottomIndex];
+
+    }
+}
+
+function PrevPlanetPart(type) {
+    if (type == "top") {
+        if (planetTopIndex <= 0) {
+            //Set the index to the max number of planets
+            planetTopIndex = numPlanets - 1;
+        }
+        else {
+            planetTopIndex--;
+        }
+
+
+
+        planetTopPart.src = planetTopImages[planetTopIndex];
+    }
+
+    else if (type == "middle") {
+        if (planetMiddleIndex <= 0) {
+            //Set the index to the max number of planets
+            planetMiddleIndex = numPlanets - 1;
+        }
+        else {
+            planetMiddleIndex--;
+        }
+        
+        planetMiddlePart.src = planetMiddleImages[planetMiddleIndex];
+    }
+
+    else {
+        if (planetBottomIndex <= 0) {
+            //Set the index to the max number of planets
+            planetBottomIndex = numPlanets - 1;
+        }
+        else {
+            planetBottomIndex--;
+        }
+
+        planetBottomPart.src = planetBottomImages[planetBottomIndex];
+    }
+
 }
 
 //Function for randomly spawning asteroids
@@ -322,5 +424,25 @@ var gameStartButton = document.querySelector(".start-game-button");
 var asteroid = document.querySelector(".asteroid"); //Asteroid 
 
 gameStartButton.addEventListener("click", StartGame);
-asteroid.addEventListener("click", ClearAsteroid) //Clear Asteroid on click 
+asteroid.addEventListener("click", ClearAsteroid) //Clear Asteroid on click
+
+//Handle Planet Creation Game
+
+var topButtonNext = document.querySelector(".top-next");
+var topButtonPrev = document.querySelector(".top-previous");
+
+var middleButtonNext = document.querySelector(".middle-next");
+var middleButtonPrev = document.querySelector(".middle-previous");
+
+var bottomButtonNext = document.querySelector(".bottom-next");
+var bottomButtonPrev = document.querySelector(".bottom-previous");
+
+topButtonNext.addEventListener("click", function () { NextPlanetPart("top") });
+middleButtonNext.addEventListener("click", function () { NextPlanetPart("middle") });
+bottomButtonNext.addEventListener("click", function () { NextPlanetPart("bottom") });
+
+topButtonPrev.addEventListener("click", function () { PrevPlanetPart("top") });
+middleButtonPrev.addEventListener("click", function () { PrevPlanetPart("middle") });
+bottomButtonPrev.addEventListener("click", function () { PrevPlanetPart("bottom") });
+
 
