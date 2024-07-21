@@ -522,9 +522,10 @@ planetBriefSelector[6].addEventListener("click", function () { ChangePlanetBrief
 //Handle Asteroid Shooting Game
 var gameStartButton = document.querySelector(".start-game-button");
 var asteroid = document.querySelector(".asteroid"); //Asteroid 
+var asteroidAudio = document.querySelector("#asteroid-audio");
 
 gameStartButton.addEventListener("click", StartGame);
-asteroid.addEventListener("click", ClearAsteroid); //Clear Asteroid on click
+asteroid.addEventListener("click", function () { ClearAsteroid(); asteroidAudio.play();}); //Clear Asteroid on click
 
 //Handle Planet Creation Game
 

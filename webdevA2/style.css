@@ -46,6 +46,10 @@ body
     /* overflow-x:hidden; */
 }
 
+audio
+{
+    display:none;
+}
 .mobile
 {
     display:none;
@@ -108,6 +112,7 @@ body
 {
     text-decoration: underline;
 }
+
 
 #main-information
 {
@@ -608,6 +613,9 @@ footer ul
 .moons-video
 {
     max-width:60vw;
+    width:560;
+    height:315;
+    
 }
 .moon p
 {
