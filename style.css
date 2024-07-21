@@ -231,6 +231,11 @@ body
 
 }
 
+.mobile-scanner img
+{
+    max-width:100px;
+    height:auto;
+}
 
 
 #planets
