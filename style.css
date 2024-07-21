@@ -24,13 +24,19 @@ html
 body
 {
     font-family: 'Poppins';
+    /* overflow-x:hidden; */
+}
+
+.mobile
+{
+    display:none;
 }
 
 #menu-nav
 {
     position:sticky;
     top:0;
-    z-index: 1;
+    z-index: 1; /*Make it on top of all other elements*/
     display:flex;
     flex-direction:column;
     height:15vh;
@@ -51,7 +57,7 @@ body
     align-self: center;
 }
 
-.icon h1
+.icon b
 {
     color: white;
     align-self: center;
@@ -115,7 +121,7 @@ body
     max-height:100%;
 }
 
-.main-information-text h1
+.main-information-text b
 {
     font-size: 10vh;
 }
@@ -229,8 +235,11 @@ body
 
 #planets
 {
+    overflow-x: hidden;
     display:none;
     flex-direction: column;
+    max-width:100%;
+    height:100vh;
 }
 
 #planet-brief
@@ -291,6 +300,7 @@ body
     border: 2px solid #333333;
     color: #333333;
     border-radius: 5px;
+    font-size:1.5vw;
 }
 
 .planet-selector h3:hover
@@ -298,9 +308,19 @@ body
     cursor:pointer;
 }
 
+.mobile-planet-selector {
+    display: none;
+
+}
+
 .planet-name
 {
-    font-size:5vw;
+    font-size:4vw;
+}
+
+#planet-information p
+{
+    font-size:1vw;
 }
 
 .slidenxt-anim
@@ -318,9 +338,33 @@ body
 .planet-img
 {
 
-    max-height:70vh;
-    width:auto;
+    height:auto;
+    max-width:30vw;
 }
+
+.additional-information
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap:3vh;
+}
+
+.additional-information b
+{
+    font-size:3vw;
+}
+
+.planet-additional-information
+{
+    font-size:1vw;
+    max-width:60vw;
+
+}
+
+
+
 
 #games
 {   
@@ -341,9 +385,15 @@ body
     display:flex;
     justify-content: center;
     align-self: center;
-    height:20vh;
+    height:12vw;
     gap:3vw;
     overflow: hidden;
+}
+
+.create-planet img
+{
+    max-width:36vw;
+    height:auto;
 }
 
 .create-planet button
@@ -455,19 +505,428 @@ body
     display:none;
     max-width:5vw;
     height:auto;
+}   
+
+footer
+{
+    display:grid;
+    grid-template-columns: 3fr 2fr 2fr;
+    grid-template-rows: 20vh;
+    background-color: black;
+    color:white;
+    align-items: center;
+    padding-left: 50px;
 }
 
-@media only screen and (max-width: 800px) 
+footer a
 {
+    color:white;
+}
+
+footer ul 
+{
+    list-style:none;
+}
+.authorship-information
+{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.contact-information
+{
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.mobile-scanner
+{
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+#moons
+{
+    display:flex;
+}
+
+.end-screen
+{
+    display:none;
+    position:relative;
+    z-index:0;
+    top:25%;
+    font-size:2vw;
+    color:cyan;
+    text-align: center;
+}
+
+.retry-button:hover
+{
+    cursor:pointer;
+}
+
+#moons
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap:5vh;
+    height:150vh;
+}
+
+.planet-moons
+{
+    display:flex;
+    flex-direction: column;
+}
+
+.moon
+{
+    display:inline-block;
+    
+}
+
+.moon img
+{
+    max-width:100px;
+    height:auto;
+}
+
+.moons-description
+{
+    max-width:60%;
+}
+.moon .moon-content
+{
+    display:grid;
+    text-wrap: wrap;
+    grid-template-columns: 15% 30% 15% auto;
+}
+
+.moons-video
+{
+    max-width:60vw;
+}
+.moon p
+{
+    font-size:1vw;
+}
+
+
+
+
+
+/*Media query for tablet screen*/
+@media only screen and (max-width: 800px) 
+{   
+    
+    footer {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 20vh;
+        background-color: black;
+        color: white;
+        align-items: center;
+        padding-left: 50px;
+        font-size:2vw;
+    }
+
+    footer a {
+        color: white;
+    }
+
+    footer ul {
+        list-style: none;
+    }
+
+    .authorship-information {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .contact-information {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .mobile-scanner {
+        display:none;
+    }
+
     .nav-titles
     {
-        display:none;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        transition: .3s ease;
+        font-size:3rem;
+        background-color: #14141c;
+        height:100vh;
+        width:100%;
+        max-width:50vw;
+        position:fixed;
+        left: -50vw;
+    }
+
+    .nav-titles.active
+    {
+        left:0px;
     }
 
     .icon
     {
-        height:100%;
+        height:100vw;
+        font-size:2vw;
     }
+
+    .icon img {
+        max-width:20vw;
+        height: auto;
+        align-self: center;
+    }
+
+    .icon b {
+        color: white;
+        align-self: center;
+        font-size: 3vw;
+    }
+
+    .main-information-text
+    {
+        max-width: 80vw;
+    }
+    .main-information-text b
+    {
+        font-size:10vw;
+    }
+    
+    #about
+    {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 15vh 25vh 40vh 25vh auto;
+        justify-items: center;
+        text-align: center;
+    }
+    .about-title
+    {
+        grid-area:1 / 1 / 2 / 2;
+    }
+    .history-img
+    {
+        grid-area:2 / 1 / 3 / 2;
+        max-height: 100%;
+        max-width:80vw;
+        width: auto;
+    }
+    .history-text
+    {
+        grid-area: 3 / 1 / 4 / 2;
+        max-width: 70vw;
+        font-size: 3vw;
+    }
+    .structure-img
+    {
+        grid-area: 4 / 1 / 5 / 2;
+        max-height:100%;
+        max-width: 80vw;
+        width:auto;
+    }
+    .structure-text
+    {
+        grid-area: 5 / 1 / 6 / 2;
+        max-width: 70vw;
+        font-size:3vw;
+    }
+    .main-information-text a
+    {
+        height: 30vh;
+        width: 30vw;
+        font-size: 3.5vw;
+    }
+
+    .hamburger-menu
+    {
+        z-index: 2;
+        height:50px;
+        width:5vw;
+        position:absolute;
+        align-self:center;
+        left:30px;
+    }
+
+    .hamburger-menu span
+    {
+        height:5px;
+        width:100%;
+        background-color:white;
+        border-radius:25px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        transition:.3s ease;
+    }
+
+    .hamburger-menu span:nth-child(1)
+    {
+        top:25%;
+    }
+
+    .hamburger-menu span:nth-child(3) {
+        top: 75%;
+    }
+
+    .hamburger-menu.active span:nth-child(1)
+    {
+        top:50%;
+        transform: translate(-50%, -50%) rotate(45deg)
+    }
+
+    .hamburger-menu.active span:nth-child(2)
+    {
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg)
+    }
+    
+    #planet-brief
+    {
+        height:60vh;
+        display:flex;
+        flex-direction: column;
+    }
+    .planet-img
+    {
+        max-width: 50vw;
+        height:auto;
+    }
+    #planet-information
+    {
+        text-align: center;
+    }
+
+    .mobile
+    {
+        display:flex;
+        gap:10vw;
+    }
+    .desktop
+    {
+        display:none;
+    }
+    .mobile-planet-selector
+    {
+        display:flex;
+        position: absolute;
+        left:30px;
+        gap:1vw;
+        font-size:3vw;
+
+    }
+
+    .mobile-planet-selector h2 
+    {
+        align-self:center;
+        transform: rotate(-90deg);
+        transition:0.3s ease;
+    }
+
+    .mobile-planet-selector h2.active
+    {
+        transform: rotate(0deg);
+    }
+    
+    .planet-selector
+    {
+        display:none;
+        flex-direction: column;
+        padding-left:30px; /*Same as planet selector*/
+        position:absolute;
+        gap:5px;
+        opacity: 0%;
+        transition:0.3s ease;
+    }
+    .planet-selector.active {
+        display:flex;
+        opacity: 100%;
+    }
+    .planet-selector h3
+    {
+        font-size:2vw;
+    }
+    #planet-information p
+    {
+        font-size:2.5vw;
+    }
+    .additional-information
+    {
+        color:black;
+        display:flex;
+        background-color:white;
+        width:100vw;
+        height:50vh;
+        bottom: -500px;
+        position:fixed;
+        transition: 0.3s ease-in-out;
+    }
+    .additional-information p
+    {
+        font-size:3vw;
+    }
+
+    .additional-information.active
+    {
+        bottom:0px;
+    }
+
+    .additional-info-title
+    {
+        width:100%;
+        background-color:grey;
+    }
+    
+    .additional-info-title b
+    {
+        float:left;
+    }
+
+    .close-tab
+    {
+        top:20%;
+        position:relative;
+        float:right;
+        
+    }
+    .read-more
+    {
+        border: 1px white dotted;
+    }
+
+    .moon p {
+        font-size: 2vw;
+    }
+    #moon
+    {
+        height:auto;
+    }
+    #moons h2
+    {
+        font-size:3vw;
+    }
+    .moon img
+    {
+        max-width:10vw;
+    }
+    .moon-content
+    {
+    grid-template-columns: 15% 30% auto;    
+    }
+    
+    .asteroid-text
+    {
+        font-size:2vw;
+    }   
+
 }
 
 
