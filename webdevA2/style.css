@@ -4,8 +4,27 @@
 {
     font-family: 'Poppins';
     src: url("fonts/Poppins-Regular.ttf") format('truetype');
-    font-size:0;
-    font-weight: 0;
+}
+
+@keyframes slide-next {
+    from {
+        translate: -100vw 0;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes slide-prev {
+    from {
+        translate: 100vw 0;
+    }
+
+    to {
+        translate: 0 0;
+    }
+
 }
 
 *
@@ -180,7 +199,7 @@ body
     font-size:7vh;
 }   
 
-.history-text h1
+.history-text h2
 {
     font-size:5vh;
 }
@@ -197,7 +216,7 @@ body
     grid-area: 3 / 4 / 4 / 5;
 }
 
-.structure-text h1
+.structure-text h2
 {
     font-size:5vh;
 }
@@ -209,27 +228,7 @@ body
     height:auto;
 }
 
-@keyframes slide-next
-{
-    from{
-        translate: -100vw 0;
-    }
-    to{
-        translate:0 0;
-    }
 
-}
-
-@keyframes slide-prev
-{
-    from{
-        translate: 100vw 0;
-    }
-    to{
-        translate:0 0;
-    }
-
-}
 
 .mobile-scanner img
 {
@@ -463,7 +462,7 @@ body
     gap:2vh;
 }
 
-.asteroid-game h1
+.asteroid-game h2
 {
     font-size:2vw;
 }
