@@ -13,7 +13,7 @@ var planetIndex = 0;
 var planetTopIndex = 0;
 var planetMiddleIndex = 0;
 var planetBottomIndex = 0;
-
+//Add comment
 const numPlanets = 8;
 
 const planetNames = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
