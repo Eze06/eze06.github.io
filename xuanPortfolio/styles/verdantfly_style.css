@@ -1,0 +1,133 @@
+@font-face 
+{
+    font-family: 'Roboto_Condensed-ExtraLight';
+    src: url('/fonts/Roboto_Condensed-ExtraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face 
+{
+    font-family: 'HelveticaNeueThin';
+    src: url('/fonts/HelveticaNeueThin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+body 
+{
+    background: #fafafa;
+    margin: 0;
+    perspective: 1200px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    user-select: none;
+    font-family: 'HelveticaNeueThin', sans-serif;
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-bar
+{
+    padding-top: 0.1vw;
+    padding-left: 0.1vw;
+    display:flex;
+    flex-direction: row;
+    gap: 0.1vw;
+
+}
+
+.nav-button
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    border: 0.1vw solid ;
+    border-radius: 0.3vw;
+    background-color: #f2f2f2;
+    border-color: #d3d3d3;
+    width:5.3vw;
+    height: 6.3vh;
+}
+
+.projects-button 
+{
+    display:flex;
+    flex-direction: row;
+    border: 0.01px solid;
+    border-radius: 0.3vw;
+    background-color: #f2f2f2;
+    border-color: #d3d3d3;
+    width: 10vw;
+    height:6.3vh;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+
+.nav-bar h2
+{
+    padding-left: 0.4vw;
+    font-size:0.5vw;
+    font-weight:600;
+    color: #a9a9a9;
+}
+.selected {
+    color: #131313 !important;
+}
+
+
+.gallery
+{
+    position: relative;
+    display:flex;
+    height:80vh;
+    justify-content: center;
+    align-content: center;
+    perspective: none;
+}
+
+.project-description
+{
+    display:flex;
+    height: 50vh;
+    align-items: center;
+
+}
+
+.description
+{
+    font-size:0.8vw;
+    max-width: 50vw;
+    padding-left: 3vw;
+}
+
+.project-images 
+{
+    display:grid;
+    grid-template-columns: 50vw 50vw;
+    
+}
+
+.project-images img
+{
+    opacity: 0;
+    width:100%;
+    height:auto;
+}
+
+.img-header
+{
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
+}
