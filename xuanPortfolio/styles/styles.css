@@ -1,7 +1,7 @@
 @font-face 
 {
     font-family: 'Roboto_Condensed-ExtraLight';
-    src: url('/fonts/Roboto_Condensed-ExtraLight.ttf') format('truetype');
+    src: url('../fonts/Roboto_Condensed-ExtraLight.ttf') format('truetype');
     font-weight: normal;
     font-style: normal; 
 }
@@ -9,7 +9,7 @@
 @font-face 
 {
     font-family: 'HelveticaNeueThin';
-    src: url('/fonts/HelveticaNeueThin.otf') format('opentype');
+    src: url('../fonts/HelveticaNeueThin.otf') format('opentype');
     font-weight: normal;
     font-style: normal; 
 }
