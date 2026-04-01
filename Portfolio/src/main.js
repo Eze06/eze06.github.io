@@ -40,7 +40,7 @@ const SkillsDescription = document.querySelector(".description-skills");
 const ShowreelDescription = document.querySelector('.description-showreel');
 
 
-const ProjectNames = ["cardiva", "engarde", "konranbou", "xpofolio", "verdant", "pryze", "requiem", "solar-system"];
+const ProjectNames = ["cardiva", "engarde", "konranbou", "xpofolio", "verdant", "pryze", "requiem", "solarsystem"];
 
 
 //Project Scroller Variables
@@ -510,7 +510,7 @@ function OpenProject(ProjectIndex)
     defaults: { overwrite: "auto" },
 
     onComplete: () => {
-      window.location.href = `projects/${ProjectName}.html`;
+      window.location.href = `./${ProjectName}/`;
     }
 
   });

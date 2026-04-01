@@ -1,20 +1,26 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
+const root = resolve(__dirname, 'src');
+const outDir = resolve(__dirname, 'dist');
+
 export default defineConfig({
+    root,
     base: "/Portfolio/",
     build: {
+        outDir,
+        emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, "index.html"),
-                cardiva: resolve(__dirname, "projects/cardiva.html"),
-                engarde: resolve(__dirname, "projects/engarde.html"),
-                konranbou: resolve(__dirname, "projects/konranbou.html"),
-                pryze: resolve(__dirname, "projects/pryze.html"),
-                requiem: resolve(__dirname, "projects/requiem.html"),
-                verdant: resolve(__dirname, "projects/verdant.html"),
-                solarsystem: resolve(__dirname, "projects/solar-system.html"),
-                xpofolio: resolve(__dirname, "projects/xpofolio.html"),
+                main: resolve(root, "index.html"),
+                cardiva: resolve(root, 'cardiva', 'index.html'),
+                engarde: resolve(root, 'engarde', 'index.html'),
+                konranbou: resolve(root, 'konranbou', 'index.html'),
+                pryze: resolve(root, 'pryze', 'index.html'),
+                requiem: resolve(root, 'requiem', 'index.html'),
+                verdant: resolve(root, 'verdant', 'index.html'),
+                solarsystem: resolve(root, 'solarsystem', 'index.html'),
+                xpofolio: resolve(root, 'xpofolio', 'index.html'),
             },
         },
     },

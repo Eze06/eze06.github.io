@@ -1,6 +1,6 @@
 @font-face {
   font-family: "MonumentExtendedRegular";
-  src: url("../assets/fonts/MonumentExtended-Regular.otf") format('opentype');
+  src: url("assets/fonts/MonumentExtended-Regular.otf") format('opentype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "MonumentExtendedBold";
-  src: url("../assets/fonts/MonumentExtended-Ultrabold.otf") format('opentype');
+  src: url("assets/fonts/MonumentExtended-Ultrabold.otf") format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "Helvetica";
-  src: url("../assets/fonts/Helvetica.ttf") format('truetype');
+  src: url("assets/fonts/Helvetica.ttf") format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: "CassandraRegular";
-  src: url("../assets/fonts/CassandraRegular.ttf") format('truetype');
+  src: url("assets/fonts/CassandraRegular.ttf") format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "Anton";
-  src: url("../assets/fonts/Anton.ttf") format('truetype');
+  src: url("assets/fonts/Anton.ttf") format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: "Honera";
-  src: url("../assets/fonts/Honera.otf") format('opentype');
+  src: url("assets/fonts/Honera.otf") format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
